@@ -17,12 +17,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/ChangelogItem', 'model/EmailValidationCode', 'model/EmailValidationResult', 'model/ErrorResponse', 'model/Guid', 'model/LookupResponse', 'model/MapItem', 'model/MatchResult', 'model/PasswordCredentials', 'model/PendingDelete', 'model/PropertyBag', 'model/Query', 'model/ReservationResponse', 'model/SetPasswordResponse', 'model/User', 'model/UserForUpdate', 'model/UserHistory', 'model/UserHistoryItem', 'model/Username', 'model/Userstate', 'model/ValidatePasswordResponse', 'api/LookupAndValidateApi', 'api/PasswordApi', 'api/UserCrudApi', 'api/UserHistoryApi', 'api/UserReservationApi', 'api/UsernameAndEmailingApi'], factory);
+    define(['ApiClient', 'model/ChangelogItem', 'model/EmailValidationCode', 'model/EmailValidationResult', 'model/ErrorResponse', 'model/LookupResponse', 'model/MapItem', 'model/MatchResult', 'model/PasswordCredentials', 'model/PendingDelete', 'model/PropertyBag', 'model/Query', 'model/ReservationResponse', 'model/SetPasswordResponse', 'model/User', 'model/UserForUpdate', 'model/UserHistory', 'model/UserHistoryItem', 'model/Username', 'model/Userstate', 'model/ValidatePasswordResponse', 'api/LookupAndValidateApi', 'api/PasswordApi', 'api/UserCrudApi', 'api/UserHistoryApi', 'api/UserReservationApi', 'api/UsernameAndEmailingApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/ChangelogItem'), require('./model/EmailValidationCode'), require('./model/EmailValidationResult'), require('./model/ErrorResponse'), require('./model/Guid'), require('./model/LookupResponse'), require('./model/MapItem'), require('./model/MatchResult'), require('./model/PasswordCredentials'), require('./model/PendingDelete'), require('./model/PropertyBag'), require('./model/Query'), require('./model/ReservationResponse'), require('./model/SetPasswordResponse'), require('./model/User'), require('./model/UserForUpdate'), require('./model/UserHistory'), require('./model/UserHistoryItem'), require('./model/Username'), require('./model/Userstate'), require('./model/ValidatePasswordResponse'), require('./api/LookupAndValidateApi'), require('./api/PasswordApi'), require('./api/UserCrudApi'), require('./api/UserHistoryApi'), require('./api/UserReservationApi'), require('./api/UsernameAndEmailingApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/ChangelogItem'), require('./model/EmailValidationCode'), require('./model/EmailValidationResult'), require('./model/ErrorResponse'), require('./model/LookupResponse'), require('./model/MapItem'), require('./model/MatchResult'), require('./model/PasswordCredentials'), require('./model/PendingDelete'), require('./model/PropertyBag'), require('./model/Query'), require('./model/ReservationResponse'), require('./model/SetPasswordResponse'), require('./model/User'), require('./model/UserForUpdate'), require('./model/UserHistory'), require('./model/UserHistoryItem'), require('./model/Username'), require('./model/Userstate'), require('./model/ValidatePasswordResponse'), require('./api/LookupAndValidateApi'), require('./api/PasswordApi'), require('./api/UserCrudApi'), require('./api/UserHistoryApi'), require('./api/UserReservationApi'), require('./api/UsernameAndEmailingApi'));
   }
-}(function(ApiClient, ChangelogItem, EmailValidationCode, EmailValidationResult, ErrorResponse, Guid, LookupResponse, MapItem, MatchResult, PasswordCredentials, PendingDelete, PropertyBag, Query, ReservationResponse, SetPasswordResponse, User, UserForUpdate, UserHistory, UserHistoryItem, Username, Userstate, ValidatePasswordResponse, LookupAndValidateApi, PasswordApi, UserCrudApi, UserHistoryApi, UserReservationApi, UsernameAndEmailingApi) {
+}(function(ApiClient, ChangelogItem, EmailValidationCode, EmailValidationResult, ErrorResponse, LookupResponse, MapItem, MatchResult, PasswordCredentials, PendingDelete, PropertyBag, Query, ReservationResponse, SetPasswordResponse, User, UserForUpdate, UserHistory, UserHistoryItem, Username, Userstate, ValidatePasswordResponse, LookupAndValidateApi, PasswordApi, UserCrudApi, UserHistoryApi, UserReservationApi, UsernameAndEmailingApi) {
   'use strict';
 
   /**
@@ -82,11 +82,6 @@
      * @property {module:model/ErrorResponse}
      */
     ErrorResponse: ErrorResponse,
-    /**
-     * The Guid model constructor.
-     * @property {module:model/Guid}
-     */
-    Guid: Guid,
     /**
      * The LookupResponse model constructor.
      * @property {module:model/LookupResponse}

@@ -4,10 +4,10 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createUser**](UserCrudApi.md#createUser) | **POST** /user/{useridentifier} | Updates user
-[**deleteUser**](UserCrudApi.md#deleteUser) | **DELETE** /user/{useridentifier} | Delete a user
-[**getUserById**](UserCrudApi.md#getUserById) | **GET** /user/{useridentifier} | Get user by user identifier
-[**updateUser**](UserCrudApi.md#updateUser) | **PUT** /user/{useridentifier} | Updates user
+[**createUser**](UserCrudApi.md#createUser) | **POST** /ssouser.svc/user/{useridentifier} | Updates user
+[**deleteUser**](UserCrudApi.md#deleteUser) | **DELETE** /ssouser.svc/user/{useridentifier} | Delete a user
+[**getUserById**](UserCrudApi.md#getUserById) | **GET** /ssouser.svc/user/{useridentifier} | Get user by user identifier
+[**updateUser**](UserCrudApi.md#updateUser) | **PUT** /ssouser.svc/user/{useridentifier} | Updates user
 
 
 <a name="createUser"></a>

@@ -4,7 +4,7 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**reserveUserIdentifier**](UserReservationApi.md#reserveUserIdentifier) | **POST** /reserve | Reserve user identifiers.
+[**reserveUserIdentifier**](UserReservationApi.md#reserveUserIdentifier) | **POST** /ssouser.svc/reserve | Reserve user identifiers.
 
 
 <a name="reserveUserIdentifier"></a>

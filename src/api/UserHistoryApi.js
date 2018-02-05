@@ -88,7 +88,7 @@
       var returnType = UserHistory;
 
       return this.apiClient.callApi(
-        '/history/{useridentifier}', 'GET',
+        '/ssouser.svc/history/{useridentifier}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

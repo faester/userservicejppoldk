@@ -17,18 +17,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Guid'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Guid'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.Userservicejppoldk) {
       root.Userservicejppoldk = {};
     }
-    root.Userservicejppoldk.SetPasswordResponse = factory(root.Userservicejppoldk.ApiClient, root.Userservicejppoldk.Guid);
+    root.Userservicejppoldk.SetPasswordResponse = factory(root.Userservicejppoldk.ApiClient);
   }
-}(this, function(ApiClient, Guid) {
+}(this, function(ApiClient) {
   'use strict';
 
 
@@ -65,7 +65,7 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('UserIdentifier')) {
-        obj['UserIdentifier'] = Guid.constructFromObject(data['UserIdentifier']);
+        obj['UserIdentifier'] = ApiClient.convertToType(data['UserIdentifier'], 'String');
       }
       if (data.hasOwnProperty('Response')) {
         obj['Response'] = ApiClient.convertToType(data['Response'], 'String');
@@ -76,7 +76,7 @@
 
   /**
    * Identifier of the user matching both username and password. Will be false when password is incorrect even though a match for username was found. If you need to lookup users, you should use the 'lookup' method.
-   * @member {module:model/Guid} UserIdentifier
+   * @member {String} UserIdentifier
    */
   exports.prototype['UserIdentifier'] = undefined;
   /**

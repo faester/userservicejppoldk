@@ -49,8 +49,8 @@
 
 
     /**
-     * Callback function to receive the result of the mailUseridentifierMailNumberPost operation.
-     * @callback module:api/UsernameAndEmailingApi~mailUseridentifierMailNumberPostCallback
+     * Callback function to receive the result of the ssouserSvcMailUseridentifierMailNumberPost operation.
+     * @callback module:api/UsernameAndEmailingApi~ssouserSvcMailUseridentifierMailNumberPostCallback
      * @param {String} error Error message, if any.
      * @param {Object} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -62,25 +62,25 @@
      * @param {String} useridentifier Identifier of the user to e-mail.
      * @param {module:model/String} mailNumber Number of the custom mail
      * @param {String} branding The branding  defining the e-mail sent to the user
-     * @param {module:api/UsernameAndEmailingApi~mailUseridentifierMailNumberPostCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/UsernameAndEmailingApi~ssouserSvcMailUseridentifierMailNumberPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
-    this.mailUseridentifierMailNumberPost = function(useridentifier, mailNumber, branding, callback) {
+    this.ssouserSvcMailUseridentifierMailNumberPost = function(useridentifier, mailNumber, branding, callback) {
       var postBody = null;
 
       // verify the required parameter 'useridentifier' is set
       if (useridentifier === undefined || useridentifier === null) {
-        throw new Error("Missing the required parameter 'useridentifier' when calling mailUseridentifierMailNumberPost");
+        throw new Error("Missing the required parameter 'useridentifier' when calling ssouserSvcMailUseridentifierMailNumberPost");
       }
 
       // verify the required parameter 'mailNumber' is set
       if (mailNumber === undefined || mailNumber === null) {
-        throw new Error("Missing the required parameter 'mailNumber' when calling mailUseridentifierMailNumberPost");
+        throw new Error("Missing the required parameter 'mailNumber' when calling ssouserSvcMailUseridentifierMailNumberPost");
       }
 
       // verify the required parameter 'branding' is set
       if (branding === undefined || branding === null) {
-        throw new Error("Missing the required parameter 'branding' when calling mailUseridentifierMailNumberPost");
+        throw new Error("Missing the required parameter 'branding' when calling ssouserSvcMailUseridentifierMailNumberPost");
       }
 
 
@@ -102,15 +102,15 @@
       var returnType = Object;
 
       return this.apiClient.callApi(
-        '/mail/{useridentifier}/{mailNumber}', 'POST',
+        '/ssouser.svc/mail/{useridentifier}/{mailNumber}', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the newemailUseridentifierRequestedEmailPut operation.
-     * @callback module:api/UsernameAndEmailingApi~newemailUseridentifierRequestedEmailPutCallback
+     * Callback function to receive the result of the ssouserSvcNewemailUseridentifierRequestedEmailPut operation.
+     * @callback module:api/UsernameAndEmailingApi~ssouserSvcNewemailUseridentifierRequestedEmailPutCallback
      * @param {String} error Error message, if any.
      * @param {Object} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -122,25 +122,25 @@
      * @param {String} useridentifier The username of the user to authenticate
      * @param {String} requestedEmail The desired new email address for the user.
      * @param {String} branding The branding defining the e-mail sent to the user
-     * @param {module:api/UsernameAndEmailingApi~newemailUseridentifierRequestedEmailPutCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/UsernameAndEmailingApi~ssouserSvcNewemailUseridentifierRequestedEmailPutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
-    this.newemailUseridentifierRequestedEmailPut = function(useridentifier, requestedEmail, branding, callback) {
+    this.ssouserSvcNewemailUseridentifierRequestedEmailPut = function(useridentifier, requestedEmail, branding, callback) {
       var postBody = null;
 
       // verify the required parameter 'useridentifier' is set
       if (useridentifier === undefined || useridentifier === null) {
-        throw new Error("Missing the required parameter 'useridentifier' when calling newemailUseridentifierRequestedEmailPut");
+        throw new Error("Missing the required parameter 'useridentifier' when calling ssouserSvcNewemailUseridentifierRequestedEmailPut");
       }
 
       // verify the required parameter 'requestedEmail' is set
       if (requestedEmail === undefined || requestedEmail === null) {
-        throw new Error("Missing the required parameter 'requestedEmail' when calling newemailUseridentifierRequestedEmailPut");
+        throw new Error("Missing the required parameter 'requestedEmail' when calling ssouserSvcNewemailUseridentifierRequestedEmailPut");
       }
 
       // verify the required parameter 'branding' is set
       if (branding === undefined || branding === null) {
-        throw new Error("Missing the required parameter 'branding' when calling newemailUseridentifierRequestedEmailPut");
+        throw new Error("Missing the required parameter 'branding' when calling ssouserSvcNewemailUseridentifierRequestedEmailPut");
       }
 
 
@@ -162,15 +162,15 @@
       var returnType = Object;
 
       return this.apiClient.callApi(
-        '/newemail/{useridentifier}/{requestedEmail}', 'PUT',
+        '/ssouser.svc/newemail/{useridentifier}/{requestedEmail}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the pwdresetUsernamePut operation.
-     * @callback module:api/UsernameAndEmailingApi~pwdresetUsernamePutCallback
+     * Callback function to receive the result of the ssouserSvcPwdresetUsernamePut operation.
+     * @callback module:api/UsernameAndEmailingApi~ssouserSvcPwdresetUsernamePutCallback
      * @param {String} error Error message, if any.
      * @param {Object} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -181,20 +181,20 @@
      * Trigger an email to the user which can be used to reset the users password
      * @param {String} username The username of the user to reset password for
      * @param {String} branding The branding defining the e-mail sent to the user
-     * @param {module:api/UsernameAndEmailingApi~pwdresetUsernamePutCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/UsernameAndEmailingApi~ssouserSvcPwdresetUsernamePutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
-    this.pwdresetUsernamePut = function(username, branding, callback) {
+    this.ssouserSvcPwdresetUsernamePut = function(username, branding, callback) {
       var postBody = null;
 
       // verify the required parameter 'username' is set
       if (username === undefined || username === null) {
-        throw new Error("Missing the required parameter 'username' when calling pwdresetUsernamePut");
+        throw new Error("Missing the required parameter 'username' when calling ssouserSvcPwdresetUsernamePut");
       }
 
       // verify the required parameter 'branding' is set
       if (branding === undefined || branding === null) {
-        throw new Error("Missing the required parameter 'branding' when calling pwdresetUsernamePut");
+        throw new Error("Missing the required parameter 'branding' when calling ssouserSvcPwdresetUsernamePut");
       }
 
 
@@ -215,7 +215,7 @@
       var returnType = Object;
 
       return this.apiClient.callApi(
-        '/pwdreset/{username}', 'PUT',
+        '/ssouser.svc/pwdreset/{username}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

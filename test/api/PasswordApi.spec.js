@@ -51,20 +51,20 @@
   }
 
   describe('PasswordApi', function() {
-    describe('authenticateUsernamePut', function() {
-      it('should call authenticateUsernamePut successfully', function(done) {
-        //uncomment below and update the code to test authenticateUsernamePut
-        //instance.authenticateUsernamePut(function(error) {
+    describe('ssouserSvcAuthenticateUsernamePut', function() {
+      it('should call ssouserSvcAuthenticateUsernamePut successfully', function(done) {
+        //uncomment below and update the code to test ssouserSvcAuthenticateUsernamePut
+        //instance.ssouserSvcAuthenticateUsernamePut(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('passwordUseridentifierPost', function() {
-      it('should call passwordUseridentifierPost successfully', function(done) {
-        //uncomment below and update the code to test passwordUseridentifierPost
-        //instance.passwordUseridentifierPost(function(error) {
+    describe('ssousersSvcPasswordUseridentifierPost', function() {
+      it('should call ssousersSvcPasswordUseridentifierPost successfully', function(done) {
+        //uncomment below and update the code to test ssousersSvcPasswordUseridentifierPost
+        //instance.ssousersSvcPasswordUseridentifierPost(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

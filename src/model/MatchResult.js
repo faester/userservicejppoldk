@@ -17,18 +17,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Guid'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Guid'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.Userservicejppoldk) {
       root.Userservicejppoldk = {};
     }
-    root.Userservicejppoldk.MatchResult = factory(root.Userservicejppoldk.ApiClient, root.Userservicejppoldk.Guid);
+    root.Userservicejppoldk.MatchResult = factory(root.Userservicejppoldk.ApiClient);
   }
-}(this, function(ApiClient, Guid) {
+}(this, function(ApiClient) {
   'use strict';
 
 
@@ -80,7 +80,7 @@
         obj['Query'] = ApiClient.convertToType(data['Query'], 'String');
       }
       if (data.hasOwnProperty('IdsOfMatchingUser')) {
-        obj['IdsOfMatchingUser'] = ApiClient.convertToType(data['IdsOfMatchingUser'], [Guid]);
+        obj['IdsOfMatchingUser'] = ApiClient.convertToType(data['IdsOfMatchingUser'], ['String']);
       }
     }
     return obj;
@@ -107,7 +107,7 @@
    */
   exports.prototype['Query'] = undefined;
   /**
-   * @member {Array.<module:model/Guid>} IdsOfMatchingUser
+   * @member {Array.<String>} IdsOfMatchingUser
    */
   exports.prototype['IdsOfMatchingUser'] = undefined;
 

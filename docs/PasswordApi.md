@@ -4,13 +4,13 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**authenticateUsernamePut**](PasswordApi.md#authenticateUsernamePut) | **PUT** /authenticate/{username} | Validate a users password
-[**passwordUseridentifierPost**](PasswordApi.md#passwordUseridentifierPost) | **POST** /password/{useridentifier} | Set a users password
+[**ssouserSvcAuthenticateUsernamePut**](PasswordApi.md#ssouserSvcAuthenticateUsernamePut) | **PUT** /ssouser.svc/authenticate/{username} | Validate a users password
+[**ssousersSvcPasswordUseridentifierPost**](PasswordApi.md#ssousersSvcPasswordUseridentifierPost) | **POST** /ssousers.svc/password/{useridentifier} | Set a users password
 
 
-<a name="authenticateUsernamePut"></a>
-# **authenticateUsernamePut**
-> ValidatePasswordResponse authenticateUsernamePut(username, opts)
+<a name="ssouserSvcAuthenticateUsernamePut"></a>
+# **ssouserSvcAuthenticateUsernamePut**
+> ValidatePasswordResponse ssouserSvcAuthenticateUsernamePut(username, opts)
 
 Validate a users password
 
@@ -40,7 +40,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.authenticateUsernamePut(username, opts, callback);
+apiInstance.ssouserSvcAuthenticateUsernamePut(username, opts, callback);
 ```
 
 ### Parameters
@@ -63,9 +63,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json+jsondate
  - **Accept**: application/json+jsondate
 
-<a name="passwordUseridentifierPost"></a>
-# **passwordUseridentifierPost**
-> SetPasswordResponse passwordUseridentifierPost(useridentifier, opts)
+<a name="ssousersSvcPasswordUseridentifierPost"></a>
+# **ssousersSvcPasswordUseridentifierPost**
+> SetPasswordResponse ssousersSvcPasswordUseridentifierPost(useridentifier, opts)
 
 Set a users password
 
@@ -95,7 +95,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.passwordUseridentifierPost(useridentifier, opts, callback);
+apiInstance.ssousersSvcPasswordUseridentifierPost(useridentifier, opts, callback);
 ```
 
 ### Parameters

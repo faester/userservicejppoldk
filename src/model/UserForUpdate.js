@@ -17,18 +17,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Guid', 'model/PropertyBag'], factory);
+    define(['ApiClient', 'model/PropertyBag'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Guid'), require('./PropertyBag'));
+    module.exports = factory(require('../ApiClient'), require('./PropertyBag'));
   } else {
     // Browser globals (root is window)
     if (!root.Userservicejppoldk) {
       root.Userservicejppoldk = {};
     }
-    root.Userservicejppoldk.UserForUpdate = factory(root.Userservicejppoldk.ApiClient, root.Userservicejppoldk.Guid, root.Userservicejppoldk.PropertyBag);
+    root.Userservicejppoldk.UserForUpdate = factory(root.Userservicejppoldk.ApiClient, root.Userservicejppoldk.PropertyBag);
   }
-}(this, function(ApiClient, Guid, PropertyBag) {
+}(this, function(ApiClient, PropertyBag) {
   'use strict';
 
 
@@ -45,7 +45,7 @@
    * The user object for updates. It is not necessarily possible to update all values returned by a GET.
    * @alias module:model/UserForUpdate
    * @class
-   * @param identifier {module:model/Guid} 
+   * @param identifier {String} 
    * @param properties {module:model/PropertyBag} 
    */
   var exports = function(identifier, properties) {
@@ -67,7 +67,7 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('Identifier')) {
-        obj['Identifier'] = Guid.constructFromObject(data['Identifier']);
+        obj['Identifier'] = ApiClient.convertToType(data['Identifier'], 'String');
       }
       if (data.hasOwnProperty('Properties')) {
         obj['Properties'] = PropertyBag.constructFromObject(data['Properties']);
@@ -77,7 +77,7 @@
   }
 
   /**
-   * @member {module:model/Guid} Identifier
+   * @member {String} Identifier
    */
   exports.prototype['Identifier'] = undefined;
   /**

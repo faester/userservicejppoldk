@@ -7,6 +7,6 @@ Name | Type | Description | Notes
 **page** | **Number** | Current page | [optional] 
 **numberOfPages** | **Number** | The total number of pages for the query | [optional] 
 **query** | **String** | Echo of the query | [optional] 
-**idsOfMatchingUser** | [**[Guid]**](Guid.md) |  | [optional] 
+**idsOfMatchingUser** | **[String]** |  | [optional] 
 
 

@@ -123,21 +123,21 @@ All URIs are relative to *https://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*Userservicejppoldk.LookupAndValidateApi* | [**getChanges**](docs/LookupAndValidateApi.md#getChanges) | **GET** /changes/{minChangeNumber} | Get changes
-*Userservicejppoldk.LookupAndValidateApi* | [**lookupByUsername**](docs/LookupAndValidateApi.md#lookupByUsername) | **GET** /lookup/{username} | Get users identifier based on current Username
-*Userservicejppoldk.LookupAndValidateApi* | [**queryUsers**](docs/LookupAndValidateApi.md#queryUsers) | **PUT** /query | Query users matching a query predicate
-*Userservicejppoldk.LookupAndValidateApi* | [**validateEmail**](docs/LookupAndValidateApi.md#validateEmail) | **POST** /validateEmail/{email} | Get users identifier based on current Username
-*Userservicejppoldk.PasswordApi* | [**authenticateUsernamePut**](docs/PasswordApi.md#authenticateUsernamePut) | **PUT** /authenticate/{username} | Validate a users password
-*Userservicejppoldk.PasswordApi* | [**passwordUseridentifierPost**](docs/PasswordApi.md#passwordUseridentifierPost) | **POST** /password/{useridentifier} | Set a users password
-*Userservicejppoldk.UserCrudApi* | [**createUser**](docs/UserCrudApi.md#createUser) | **POST** /user/{useridentifier} | Updates user
-*Userservicejppoldk.UserCrudApi* | [**deleteUser**](docs/UserCrudApi.md#deleteUser) | **DELETE** /user/{useridentifier} | Delete a user
-*Userservicejppoldk.UserCrudApi* | [**getUserById**](docs/UserCrudApi.md#getUserById) | **GET** /user/{useridentifier} | Get user by user identifier
-*Userservicejppoldk.UserCrudApi* | [**updateUser**](docs/UserCrudApi.md#updateUser) | **PUT** /user/{useridentifier} | Updates user
-*Userservicejppoldk.UserHistoryApi* | [**getHistory**](docs/UserHistoryApi.md#getHistory) | **GET** /history/{useridentifier} | Get users property history
-*Userservicejppoldk.UserReservationApi* | [**reserveUserIdentifier**](docs/UserReservationApi.md#reserveUserIdentifier) | **POST** /reserve | Reserve user identifiers.
-*Userservicejppoldk.UsernameAndEmailingApi* | [**mailUseridentifierMailNumberPost**](docs/UsernameAndEmailingApi.md#mailUseridentifierMailNumberPost) | **POST** /mail/{useridentifier}/{mailNumber} | Send one of a brandings custom mails to a user
-*Userservicejppoldk.UsernameAndEmailingApi* | [**newemailUseridentifierRequestedEmailPut**](docs/UsernameAndEmailingApi.md#newemailUseridentifierRequestedEmailPut) | **PUT** /newemail/{useridentifier}/{requestedEmail} | Let the user change Username
-*Userservicejppoldk.UsernameAndEmailingApi* | [**pwdresetUsernamePut**](docs/UsernameAndEmailingApi.md#pwdresetUsernamePut) | **PUT** /pwdreset/{username} | Let the user change or reset password
+*Userservicejppoldk.LookupAndValidateApi* | [**getChanges**](docs/LookupAndValidateApi.md#getChanges) | **GET** /ssouser.svc/changes/{minChangeNumber} | Get changes
+*Userservicejppoldk.LookupAndValidateApi* | [**lookupByUsername**](docs/LookupAndValidateApi.md#lookupByUsername) | **GET** /ssouser.svc/lookup/{username} | Get users identifier based on current Username
+*Userservicejppoldk.LookupAndValidateApi* | [**queryUsers**](docs/LookupAndValidateApi.md#queryUsers) | **PUT** /ssouser.svc/query | Query users matching a query predicate
+*Userservicejppoldk.LookupAndValidateApi* | [**validateEmail**](docs/LookupAndValidateApi.md#validateEmail) | **POST** /ssouser.svc/validateEmail/{email} | Get users identifier based on current Username
+*Userservicejppoldk.PasswordApi* | [**ssouserSvcAuthenticateUsernamePut**](docs/PasswordApi.md#ssouserSvcAuthenticateUsernamePut) | **PUT** /ssouser.svc/authenticate/{username} | Validate a users password
+*Userservicejppoldk.PasswordApi* | [**ssousersSvcPasswordUseridentifierPost**](docs/PasswordApi.md#ssousersSvcPasswordUseridentifierPost) | **POST** /ssousers.svc/password/{useridentifier} | Set a users password
+*Userservicejppoldk.UserCrudApi* | [**createUser**](docs/UserCrudApi.md#createUser) | **POST** /ssouser.svc/user/{useridentifier} | Updates user
+*Userservicejppoldk.UserCrudApi* | [**deleteUser**](docs/UserCrudApi.md#deleteUser) | **DELETE** /ssouser.svc/user/{useridentifier} | Delete a user
+*Userservicejppoldk.UserCrudApi* | [**getUserById**](docs/UserCrudApi.md#getUserById) | **GET** /ssouser.svc/user/{useridentifier} | Get user by user identifier
+*Userservicejppoldk.UserCrudApi* | [**updateUser**](docs/UserCrudApi.md#updateUser) | **PUT** /ssouser.svc/user/{useridentifier} | Updates user
+*Userservicejppoldk.UserHistoryApi* | [**getHistory**](docs/UserHistoryApi.md#getHistory) | **GET** /ssouser.svc/history/{useridentifier} | Get users property history
+*Userservicejppoldk.UserReservationApi* | [**reserveUserIdentifier**](docs/UserReservationApi.md#reserveUserIdentifier) | **POST** /ssouser.svc/reserve | Reserve user identifiers.
+*Userservicejppoldk.UsernameAndEmailingApi* | [**ssouserSvcMailUseridentifierMailNumberPost**](docs/UsernameAndEmailingApi.md#ssouserSvcMailUseridentifierMailNumberPost) | **POST** /ssouser.svc/mail/{useridentifier}/{mailNumber} | Send one of a brandings custom mails to a user
+*Userservicejppoldk.UsernameAndEmailingApi* | [**ssouserSvcNewemailUseridentifierRequestedEmailPut**](docs/UsernameAndEmailingApi.md#ssouserSvcNewemailUseridentifierRequestedEmailPut) | **PUT** /ssouser.svc/newemail/{useridentifier}/{requestedEmail} | Let the user change Username
+*Userservicejppoldk.UsernameAndEmailingApi* | [**ssouserSvcPwdresetUsernamePut**](docs/UsernameAndEmailingApi.md#ssouserSvcPwdresetUsernamePut) | **PUT** /ssouser.svc/pwdreset/{username} | Let the user change or reset password
 
 
 ## Documentation for Models
@@ -146,7 +146,6 @@ Class | Method | HTTP request | Description
  - [Userservicejppoldk.EmailValidationCode](docs/EmailValidationCode.md)
  - [Userservicejppoldk.EmailValidationResult](docs/EmailValidationResult.md)
  - [Userservicejppoldk.ErrorResponse](docs/ErrorResponse.md)
- - [Userservicejppoldk.Guid](docs/Guid.md)
  - [Userservicejppoldk.LookupResponse](docs/LookupResponse.md)
  - [Userservicejppoldk.MapItem](docs/MapItem.md)
  - [Userservicejppoldk.MatchResult](docs/MatchResult.md)
@@ -180,7 +179,7 @@ Class | Method | HTTP request | Description
 
 - **Type**: OAuth
 - **Flow**: implicit
-- **Authorization URL**: https://devauth.jppol.dk/connect/authorize
+- **Authorization URL**: https://udvauth.jppol.dk/connect/authorize
 - **Scopes**: 
   - userservice: access as described for your application
 

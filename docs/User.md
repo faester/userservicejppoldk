@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identifier** | [**Guid**](Guid.md) |  | [optional] 
+**identifier** | **String** |  | [optional] 
 **created** | **String** |  | [optional] 
 **version** | **Number** |  | [optional] 
 **state** | [**Userstate**](Userstate.md) |  | [optional] 

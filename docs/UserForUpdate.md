@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identifier** | [**Guid**](Guid.md) |  | 
+**identifier** | **String** |  | 
 **properties** | [**PropertyBag**](PropertyBag.md) |  | 
 
 

@@ -90,7 +90,7 @@
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/user/{useridentifier}', 'POST',
+        '/ssouser.svc/user/{useridentifier}', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -142,7 +142,7 @@
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/user/{useridentifier}', 'DELETE',
+        '/ssouser.svc/user/{useridentifier}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -188,7 +188,7 @@
       var returnType = User;
 
       return this.apiClient.callApi(
-        '/user/{useridentifier}', 'GET',
+        '/ssouser.svc/user/{useridentifier}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -243,7 +243,7 @@
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/user/{useridentifier}', 'PUT',
+        '/ssouser.svc/user/{useridentifier}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

@@ -88,7 +88,7 @@
       var returnType = [ChangelogItem];
 
       return this.apiClient.callApi(
-        '/changes/{minChangeNumber}', 'GET',
+        '/ssouser.svc/changes/{minChangeNumber}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -133,7 +133,7 @@
       var returnType = LookupResponse;
 
       return this.apiClient.callApi(
-        '/lookup/{username}', 'GET',
+        '/ssouser.svc/lookup/{username}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -170,13 +170,13 @@
       var formParams = {
       };
 
-      var authNames = ['clientAccess', 'userAccess'];
+      var authNames = ['clientAccess'];
       var contentTypes = ['application/json+jsondate'];
       var accepts = ['application/json+jsondate'];
       var returnType = MatchResult;
 
       return this.apiClient.callApi(
-        '/query', 'PUT',
+        '/ssouser.svc/query', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -221,7 +221,7 @@
       var returnType = EmailValidationResult;
 
       return this.apiClient.callApi(
-        '/validateEmail/{email}', 'POST',
+        '/ssouser.svc/validateEmail/{email}', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

@@ -49,8 +49,8 @@
 
 
     /**
-     * Callback function to receive the result of the authenticateUsernamePut operation.
-     * @callback module:api/PasswordApi~authenticateUsernamePutCallback
+     * Callback function to receive the result of the ssouserSvcAuthenticateUsernamePut operation.
+     * @callback module:api/PasswordApi~ssouserSvcAuthenticateUsernamePutCallback
      * @param {String} error Error message, if any.
      * @param {module:model/ValidatePasswordResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -62,16 +62,16 @@
      * @param {String} username The username of the user to authenticate
      * @param {Object} opts Optional parameters
      * @param {module:model/PasswordCredentials} opts.password 
-     * @param {module:api/PasswordApi~authenticateUsernamePutCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/PasswordApi~ssouserSvcAuthenticateUsernamePutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ValidatePasswordResponse}
      */
-    this.authenticateUsernamePut = function(username, opts, callback) {
+    this.ssouserSvcAuthenticateUsernamePut = function(username, opts, callback) {
       opts = opts || {};
       var postBody = opts['password'];
 
       // verify the required parameter 'username' is set
       if (username === undefined || username === null) {
-        throw new Error("Missing the required parameter 'username' when calling authenticateUsernamePut");
+        throw new Error("Missing the required parameter 'username' when calling ssouserSvcAuthenticateUsernamePut");
       }
 
 
@@ -91,15 +91,15 @@
       var returnType = ValidatePasswordResponse;
 
       return this.apiClient.callApi(
-        '/authenticate/{username}', 'PUT',
+        '/ssouser.svc/authenticate/{username}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the passwordUseridentifierPost operation.
-     * @callback module:api/PasswordApi~passwordUseridentifierPostCallback
+     * Callback function to receive the result of the ssousersSvcPasswordUseridentifierPost operation.
+     * @callback module:api/PasswordApi~ssousersSvcPasswordUseridentifierPostCallback
      * @param {String} error Error message, if any.
      * @param {module:model/SetPasswordResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -111,16 +111,16 @@
      * @param {String} useridentifier The username of the user to authenticate
      * @param {Object} opts Optional parameters
      * @param {module:model/PasswordCredentials} opts.password 
-     * @param {module:api/PasswordApi~passwordUseridentifierPostCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/PasswordApi~ssousersSvcPasswordUseridentifierPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SetPasswordResponse}
      */
-    this.passwordUseridentifierPost = function(useridentifier, opts, callback) {
+    this.ssousersSvcPasswordUseridentifierPost = function(useridentifier, opts, callback) {
       opts = opts || {};
       var postBody = opts['password'];
 
       // verify the required parameter 'useridentifier' is set
       if (useridentifier === undefined || useridentifier === null) {
-        throw new Error("Missing the required parameter 'useridentifier' when calling passwordUseridentifierPost");
+        throw new Error("Missing the required parameter 'useridentifier' when calling ssousersSvcPasswordUseridentifierPost");
       }
 
 
@@ -140,7 +140,7 @@
       var returnType = SetPasswordResponse;
 
       return this.apiClient.callApi(
-        '/password/{useridentifier}', 'POST',
+        '/ssousers.svc/password/{useridentifier}', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

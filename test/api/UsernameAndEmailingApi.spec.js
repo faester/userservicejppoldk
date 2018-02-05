@@ -51,30 +51,30 @@
   }
 
   describe('UsernameAndEmailingApi', function() {
-    describe('mailUseridentifierMailNumberPost', function() {
-      it('should call mailUseridentifierMailNumberPost successfully', function(done) {
-        //uncomment below and update the code to test mailUseridentifierMailNumberPost
-        //instance.mailUseridentifierMailNumberPost(function(error) {
+    describe('ssouserSvcMailUseridentifierMailNumberPost', function() {
+      it('should call ssouserSvcMailUseridentifierMailNumberPost successfully', function(done) {
+        //uncomment below and update the code to test ssouserSvcMailUseridentifierMailNumberPost
+        //instance.ssouserSvcMailUseridentifierMailNumberPost(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('newemailUseridentifierRequestedEmailPut', function() {
-      it('should call newemailUseridentifierRequestedEmailPut successfully', function(done) {
-        //uncomment below and update the code to test newemailUseridentifierRequestedEmailPut
-        //instance.newemailUseridentifierRequestedEmailPut(function(error) {
+    describe('ssouserSvcNewemailUseridentifierRequestedEmailPut', function() {
+      it('should call ssouserSvcNewemailUseridentifierRequestedEmailPut successfully', function(done) {
+        //uncomment below and update the code to test ssouserSvcNewemailUseridentifierRequestedEmailPut
+        //instance.ssouserSvcNewemailUseridentifierRequestedEmailPut(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('pwdresetUsernamePut', function() {
-      it('should call pwdresetUsernamePut successfully', function(done) {
-        //uncomment below and update the code to test pwdresetUsernamePut
-        //instance.pwdresetUsernamePut(function(error) {
+    describe('ssouserSvcPwdresetUsernamePut', function() {
+      it('should call ssouserSvcPwdresetUsernamePut successfully', function(done) {
+        //uncomment below and update the code to test ssouserSvcPwdresetUsernamePut
+        //instance.ssouserSvcPwdresetUsernamePut(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

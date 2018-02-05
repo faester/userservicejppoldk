@@ -4,7 +4,7 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getHistory**](UserHistoryApi.md#getHistory) | **GET** /history/{useridentifier} | Get users property history
+[**getHistory**](UserHistoryApi.md#getHistory) | **GET** /ssouser.svc/history/{useridentifier} | Get users property history
 
 
 <a name="getHistory"></a>

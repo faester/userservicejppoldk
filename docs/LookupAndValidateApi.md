@@ -4,10 +4,10 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getChanges**](LookupAndValidateApi.md#getChanges) | **GET** /changes/{minChangeNumber} | Get changes
-[**lookupByUsername**](LookupAndValidateApi.md#lookupByUsername) | **GET** /lookup/{username} | Get users identifier based on current Username
-[**queryUsers**](LookupAndValidateApi.md#queryUsers) | **PUT** /query | Query users matching a query predicate
-[**validateEmail**](LookupAndValidateApi.md#validateEmail) | **POST** /validateEmail/{email} | Get users identifier based on current Username
+[**getChanges**](LookupAndValidateApi.md#getChanges) | **GET** /ssouser.svc/changes/{minChangeNumber} | Get changes
+[**lookupByUsername**](LookupAndValidateApi.md#lookupByUsername) | **GET** /ssouser.svc/lookup/{username} | Get users identifier based on current Username
+[**queryUsers**](LookupAndValidateApi.md#queryUsers) | **PUT** /ssouser.svc/query | Query users matching a query predicate
+[**validateEmail**](LookupAndValidateApi.md#validateEmail) | **POST** /ssouser.svc/validateEmail/{email} | Get users identifier based on current Username
 
 
 <a name="getChanges"></a>
@@ -125,10 +125,6 @@ var defaultClient = Userservicejppoldk.ApiClient.instance;
 var clientAccess = defaultClient.authentications['clientAccess'];
 clientAccess.accessToken = 'YOUR ACCESS TOKEN';
 
-// Configure OAuth2 access token for authorization: userAccess
-var userAccess = defaultClient.authentications['userAccess'];
-userAccess.accessToken = 'YOUR ACCESS TOKEN';
-
 var apiInstance = new Userservicejppoldk.LookupAndValidateApi();
 
 var opts = { 
@@ -159,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[clientAccess](../README.md#clientAccess), [userAccess](../README.md#userAccess)
+[clientAccess](../README.md#clientAccess)
 
 ### HTTP request headers
 

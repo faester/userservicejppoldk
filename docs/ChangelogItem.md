@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**userIdentifier** | [**Guid**](Guid.md) |  | [optional] 
+**userIdentifier** | **String** |  | [optional] 
 **operationNumber** | **Number** |  | [optional] 
 **operation** | **String** |  | [optional] 
 **eventTime** | **String** |  | [optional] 

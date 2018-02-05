@@ -84,7 +84,7 @@
       var returnType = ReservationResponse;
 
       return this.apiClient.callApi(
-        '/reserve', 'POST',
+        '/ssouser.svc/reserve', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

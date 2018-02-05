@@ -17,18 +17,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Guid', 'model/MapItem', 'model/Userstate'], factory);
+    define(['ApiClient', 'model/MapItem', 'model/Userstate'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Guid'), require('./MapItem'), require('./Userstate'));
+    module.exports = factory(require('../ApiClient'), require('./MapItem'), require('./Userstate'));
   } else {
     // Browser globals (root is window)
     if (!root.Userservicejppoldk) {
       root.Userservicejppoldk = {};
     }
-    root.Userservicejppoldk.User = factory(root.Userservicejppoldk.ApiClient, root.Userservicejppoldk.Guid, root.Userservicejppoldk.MapItem, root.Userservicejppoldk.Userstate);
+    root.Userservicejppoldk.User = factory(root.Userservicejppoldk.ApiClient, root.Userservicejppoldk.MapItem, root.Userservicejppoldk.Userstate);
   }
-}(this, function(ApiClient, Guid, MapItem, Userstate) {
+}(this, function(ApiClient, MapItem, Userstate) {
   'use strict';
 
 
@@ -67,7 +67,7 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('Identifier')) {
-        obj['Identifier'] = Guid.constructFromObject(data['Identifier']);
+        obj['Identifier'] = ApiClient.convertToType(data['Identifier'], 'String');
       }
       if (data.hasOwnProperty('Created')) {
         obj['Created'] = ApiClient.convertToType(data['Created'], 'String');
@@ -86,7 +86,7 @@
   }
 
   /**
-   * @member {module:model/Guid} Identifier
+   * @member {String} Identifier
    */
   exports.prototype['Identifier'] = undefined;
   /**

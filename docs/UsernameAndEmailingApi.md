@@ -4,14 +4,14 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**mailUseridentifierMailNumberPost**](UsernameAndEmailingApi.md#mailUseridentifierMailNumberPost) | **POST** /mail/{useridentifier}/{mailNumber} | Send one of a brandings custom mails to a user
-[**newemailUseridentifierRequestedEmailPut**](UsernameAndEmailingApi.md#newemailUseridentifierRequestedEmailPut) | **PUT** /newemail/{useridentifier}/{requestedEmail} | Let the user change Username
-[**pwdresetUsernamePut**](UsernameAndEmailingApi.md#pwdresetUsernamePut) | **PUT** /pwdreset/{username} | Let the user change or reset password
+[**ssouserSvcMailUseridentifierMailNumberPost**](UsernameAndEmailingApi.md#ssouserSvcMailUseridentifierMailNumberPost) | **POST** /ssouser.svc/mail/{useridentifier}/{mailNumber} | Send one of a brandings custom mails to a user
+[**ssouserSvcNewemailUseridentifierRequestedEmailPut**](UsernameAndEmailingApi.md#ssouserSvcNewemailUseridentifierRequestedEmailPut) | **PUT** /ssouser.svc/newemail/{useridentifier}/{requestedEmail} | Let the user change Username
+[**ssouserSvcPwdresetUsernamePut**](UsernameAndEmailingApi.md#ssouserSvcPwdresetUsernamePut) | **PUT** /ssouser.svc/pwdreset/{username} | Let the user change or reset password
 
 
-<a name="mailUseridentifierMailNumberPost"></a>
-# **mailUseridentifierMailNumberPost**
-> Object mailUseridentifierMailNumberPost(useridentifier, mailNumber, branding)
+<a name="ssouserSvcMailUseridentifierMailNumberPost"></a>
+# **ssouserSvcMailUseridentifierMailNumberPost**
+> Object ssouserSvcMailUseridentifierMailNumberPost(useridentifier, mailNumber, branding)
 
 Send one of a brandings custom mails to a user
 
@@ -42,7 +42,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.mailUseridentifierMailNumberPost(useridentifier, mailNumber, branding, callback);
+apiInstance.ssouserSvcMailUseridentifierMailNumberPost(useridentifier, mailNumber, branding, callback);
 ```
 
 ### Parameters
@@ -66,9 +66,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json+jsondate
  - **Accept**: application/json+jsondate
 
-<a name="newemailUseridentifierRequestedEmailPut"></a>
-# **newemailUseridentifierRequestedEmailPut**
-> Object newemailUseridentifierRequestedEmailPut(useridentifier, requestedEmail, branding)
+<a name="ssouserSvcNewemailUseridentifierRequestedEmailPut"></a>
+# **ssouserSvcNewemailUseridentifierRequestedEmailPut**
+> Object ssouserSvcNewemailUseridentifierRequestedEmailPut(useridentifier, requestedEmail, branding)
 
 Let the user change Username
 
@@ -99,7 +99,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.newemailUseridentifierRequestedEmailPut(useridentifier, requestedEmail, branding, callback);
+apiInstance.ssouserSvcNewemailUseridentifierRequestedEmailPut(useridentifier, requestedEmail, branding, callback);
 ```
 
 ### Parameters
@@ -123,9 +123,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json+jsondate
  - **Accept**: application/json+jsondate
 
-<a name="pwdresetUsernamePut"></a>
-# **pwdresetUsernamePut**
-> Object pwdresetUsernamePut(username, branding)
+<a name="ssouserSvcPwdresetUsernamePut"></a>
+# **ssouserSvcPwdresetUsernamePut**
+> Object ssouserSvcPwdresetUsernamePut(username, branding)
 
 Let the user change or reset password
 
@@ -154,7 +154,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.pwdresetUsernamePut(username, branding, callback);
+apiInstance.ssouserSvcPwdresetUsernamePut(username, branding, callback);
 ```
 
 ### Parameters
