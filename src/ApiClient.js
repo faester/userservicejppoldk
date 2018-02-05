@@ -49,7 +49,7 @@
      * @type {String}
      * @default https://localhost
      */
-    this.basePath = 'https://localhost'.replace(/\/+$/, '');
+    this.basePath = 'https://userservicetest.jppol.dk'.replace(/\/+$/, '');
 
     /**
      * The authentication methods to be included for all API calls.
