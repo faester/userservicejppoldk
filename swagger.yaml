@@ -1,0 +1,793 @@
+swagger: '2.0'
+info:
+  description: This is a client for the userservice.jppol.dk service @ JP/Politikens Hus
+  version: 1.0.0
+  title: userservice.jppol.dk
+  termsOfService: 'http://jppol.dk/'
+  contact:
+    email: mail@medielogin.dk
+securityDefinitions:
+  clientAccess:
+    type: oauth2
+    flow: application
+    scopes:
+      userservice: access as described for your application
+    tokenUrl: 'https://udvauth.jppol.dk/connect/token'
+  userAccess:
+    type: oauth2
+    flow: implicit
+    scopes:
+      userservice: access as described for your application
+    authorizationUrl: 'https://udvauth.jppol.dk/connect/authorize'
+paths:
+  '/ssouser.svc/newemail/{useridentifier}/{requestedEmail}':
+    put:
+      operationId: StartUsernameChange
+      security:
+        - clientAccess:
+            - userservice
+        - userAccess: [userservice]
+      tags:
+        - username and e-mailing
+      summary: Let the user change Username
+      description: Trigger an email to the user which can be used to change the Username to the recipient address.
+      produces:
+        - application/json+jsondate
+      consumes:
+        - application/json+jsondate
+      parameters:
+        - in: path
+          name: useridentifier
+          type: string
+          format: uuid
+          description: The username of the user to authenticate
+          required: true
+        - in: path
+          name: requestedEmail
+          description: The desired new email address for the user.
+          required: true
+          type: string
+          format: email
+        - in: query
+          name: branding
+          description: The branding defining the e-mail sent to the user
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Validation performed without server errors.
+          schema:
+            type: object
+  '/ssouser.svc/changeUsername/{useridentifier}':
+    put:
+      operationId: CompleteUsernameChange
+      security:
+        - clientAccess:
+            - userservice
+        - userAccess: [userservice]
+      tags:
+        - username and e-mailing
+      summary: Completes Username change
+      description: Trigger an email to the user which can be used to change the Username to the recipient address.
+      produces:
+        - application/json+jsondate
+      consumes:
+        - application/json+jsondate
+      parameters:
+        - in: path
+          name: useridentifier
+          description: The identifier of the user to authenticate
+          required: true
+          type: string
+          format: uuid
+        - in: body
+          name: completeRequest
+          schema:
+            $ref: '#/definitions/completeUsernameChangeRequest' 
+      responses:
+        '200':
+          description: Request was accepted. See sub status for further information.
+          schema:
+            $ref: '#/definitions/completeUsernameChangeResponse' 
+  '/ssouser.svc/pwdreset/{username}':
+    put:
+      security:
+        - clientAccess:
+            - userservice
+      tags:
+        - username and e-mailing
+      summary: Let the user change or reset password
+      description: Trigger an email to the user which can be used to reset the users password
+      parameters:
+        - in: path
+          name: username
+          description: The username of the user to reset password for
+          required: true
+          type: string
+          format: email
+        - in: query
+          name: branding
+          description: The branding defining the e-mail sent to the user
+          required: true
+          type: string
+      consumes:
+        - application/json+jsondate
+      produces:
+        - application/json+jsondate
+      responses:
+        '200':
+          description: Request was accepted. See sub status for further information.
+          schema:
+            type: object
+  '/ssouser.svc/mail/{useridentifier}/{mailNumber}':
+    post:
+      security:
+        - clientAccess:
+            - userservice
+      tags:
+        - username and e-mailing
+      summary: Send one of a brandings custom mails to a user
+      description: Sends a predefined email to the user. The e-mail is defined in a branding which name must also be provided. Custom mails are meant to provide a simple way of sending service mails to the users albeit the limited number of templates also should indicate that this is no e-mail cannon.
+      parameters:
+        - in: path
+          name: useridentifier
+          description: Identifier of the user to e-mail.
+          required: true
+          type: string
+          format: uuid
+        - in: path
+          name: mailNumber
+          description: Number of the custom mail
+          required: true
+          type: string
+          enum:
+            - 1
+            - 2
+        - in: query
+          name: branding
+          description: The branding  defining the e-mail sent to the user
+          required: true
+          type: string
+      consumes:
+        - application/json+jsondate
+      produces:
+        - application/json+jsondate
+      responses:
+        '200':
+          description: Validation performed without server errors.
+          schema:
+            type: object
+  '/ssousers.svc/password/{useridentifier}':
+    post:
+      security:
+        - clientAccess:
+            - userservice
+      tags:
+        - password
+      summary: Set a users password
+      description: Allows password validation using web service calls. Usually discouraged method. Response will contain additional informatino about the user if username was found and even more when password was matched.
+      parameters:
+        - in: path
+          name: useridentifier
+          description: The username of the user to authenticate
+          required: true
+          type: string
+          format: uuid
+        - in: body
+          name: password
+          schema:
+            $ref: '#/definitions/passwordCredentials'
+      consumes:
+        - application/json+jsondate
+      produces:
+        - application/json+jsondate
+      responses:
+        '200':
+          description: Validation performed without server errors.
+          schema:
+            $ref: '#/definitions/setPasswordResponse'
+  '/ssouser.svc/authenticate/{username}':
+    put:
+      security:
+        - clientAccess:
+            - userservice
+      tags:
+        - password
+      summary: Validate a users password
+      description: Allows password validation using web service calls. Usually discouraged method. Response will contain additional informatino about the user if username was found and even more when password was matched.
+      parameters:
+        - in: path
+          name: username
+          description: The username of the user to authenticate
+          required: true
+          type: string
+        - in: body
+          name: password
+          schema:
+            $ref: '#/definitions/passwordCredentials'
+      consumes:
+        - application/json+jsondate
+      produces:
+        - application/json+jsondate
+      responses:
+        '200':
+          description: Validation performed without server errors.
+          schema:
+            $ref: '#/definitions/validatePasswordResponse'
+  /ssouser.svc/reserve:
+    post:
+      security:
+        - clientAccess:
+            - userservice
+      tags:
+        - user reservation
+      summary: Reserve user identifiers.
+      description: You can send an email and get a existing or new identifier in return. Or an identifier can be reserved in Userservice. This method will create a record in Userservice if no existing user matches the given Username.
+      operationId: reserveUserIdentifier
+      parameters:
+        - in: body
+          name: username
+          schema:
+            properties:
+              Username:
+                type: string
+      consumes:
+        - application/json+jsondate
+      produces:
+        - application/json+jsondate
+      responses:
+        '200':
+          description: successfully reserved identifier or found matching identifier
+          schema:
+            $ref: '#/definitions/reservationResponse'
+        '400':
+          description: Invalid values in request.
+          schema:
+            $ref: '#/definitions/errorResponse'
+  '/ssouser.svc/changes/{minChangeNumber}':
+    get:
+      security:
+        - clientAccess:
+            - userservice
+      tags:
+        - lookup and validate
+      summary: Get changes
+      description: Allows retrieval of all changes ever applied to user states in the system. This endpoint only returns meta data by identifying *that* an operation has been applied to a user. No user state is ever returned. But the endpoint can be used to get notified whenever a user has been changed which might be usefull for cache busting. The endpoint only returns CRUD operations. No information can be retrieved about emailing etc.
+      operationId: getChanges
+      parameters:
+        - in: path
+          name: minChangeNumber
+          description: First change of interest
+          required: true
+          type: integer
+      consumes:
+        - application/json+jsondate
+      produces:
+        - application/json+jsondate
+      responses:
+        '200':
+          description: Descriptions of operations applied to a user with a logical time stamp in *OperationNumber* and a (sometimes interpolated) real EventTime.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/changelogItem'
+        '404':
+          description: Email was not found.
+          schema:
+            $ref: '#/definitions/errorResponse'
+  '/ssouser.svc/lookup/{username}':
+    get:
+      security:
+        - clientAccess:
+            - userservice
+      tags:
+        - lookup and validate
+      summary: Get users identifier based on current Username
+      operationId: lookupByUsername
+      parameters:
+        - in: path
+          name: username
+          required: true
+          default: servicedesk@jppol.dk
+          type: string
+          format: email
+      consumes:
+        - application/json+jsondate
+      produces:
+        - application/json+jsondate
+      responses:
+        '200':
+          description: A matching user was found
+          schema:
+            $ref: '#/definitions/lookupResponse'
+        '404':
+          description: Email was not found.
+          schema:
+            $ref: '#/definitions/errorResponse'
+  '/ssouser.svc/validateEmail/{email}':
+    post:
+      security:
+        - clientAccess:
+            - userservice
+      tags:
+        - lookup and validate
+      summary: Get users identifier based on current Username
+      operationId: validateEmail
+      parameters:
+        - in: path
+          name: email
+          required: true
+          default: servicedesk@jppol.dk
+          type: string
+          format: email
+      responses:
+        '200':
+          description: A matching user was found
+          schema:
+            $ref: '#/definitions/emailValidationResult'
+  '/ssouser.svc/user/{useridentifier}':
+    get:
+      security:
+        - userAccess:
+            - userservice
+        - clientAccess:
+            - userservice
+      tags:
+        - user crud
+      summary: Get user by user identifier
+      description: ''
+      operationId: getUserById
+      parameters:
+        - in: path
+          name: useridentifier
+          required: true
+          type: string
+          format: uuid
+      consumes:
+        - application/json+jsondate
+      produces:
+        - application/json+jsondate
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/user'
+          headers:
+            X-Version:
+              type: number
+        '400':
+          schema:
+            $ref: '#/definitions/errorResponse'
+          description: Invalid request
+        '404':
+          description: User not found
+          schema:
+            $ref: '#/definitions/errorResponse'
+    put:
+      security:
+        - userAccess:
+            - userservice
+        - clientAccess:
+            - userservice
+      tags:
+        - user crud
+      summary: Updates user
+      description: Only send properties you want to change.
+      operationId: updateUser
+      parameters:
+        - in: path
+          name: useridentifier
+          description: Identifier of the user to update.
+          required: true
+          type: string
+          format: uuid
+        - in: header
+          name: If-Match
+          description: Value of the 'X-Version' header from last retrieval. Used for avoiding concurrency issues.
+          required: true
+          type: integer
+        - in: body
+          name: userForUpdate
+          schema:
+            $ref: '#/definitions/userForUpdate'
+      consumes:
+        - application/json+jsondate
+      produces:
+        - application/json+jsondate
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Invalid request
+        '404':
+          description: User not found
+        '406':
+          description: Mismatch in user id from path and request body.
+    post:
+      security:
+        - userAccess:
+            - userservice
+        - clientAccess:
+            - userservice
+      tags:
+        - user crud
+      summary: Updates user
+      description: Create a new user. useridentifier in query and Identifier in request must match.
+      operationId: createUser
+      parameters:
+        - in: path
+          name: useridentifier
+          required: true
+          type: string
+          format: uuid
+        - in: body
+          name: userForCreate
+          schema:
+            $ref: '#/definitions/userForUpdate'
+      consumes:
+        - application/json+jsondate
+      produces:
+        - application/json+jsondate
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/errorResponse'
+        '404':
+          description: User not found
+          schema:
+            $ref: '#/definitions/errorResponse'
+        '406':
+          description: Mismatch in user id from path and request body.
+          schema:
+            $ref: '#/definitions/errorResponse'
+    delete:
+      security:
+        - clientAccess:
+            - userservice
+      tags:
+        - user crud
+      summary: Delete a user
+      description: 'Users cannot delete their own account, this requires client access. The ''action'' parameter instructs Userservice to either *request* deletion of the user which marks the user for deletion after 30 days, to *complete* deletion by removing the user right away or *cancel* a pending delete. Usually clients are not allowed to *complete* user deletion.'
+      operationId: deleteUser
+      parameters:
+        - in: path
+          name: useridentifier
+          required: true
+          type: string
+          format: uuid
+        - in: query
+          name: action
+          required: true
+          type: string
+          enum:
+            - request
+            - cancel
+            - complete
+      consumes:
+        - application/json+jsondate
+      produces:
+        - application/json+jsondate
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Invalid user supplied
+        '404':
+          description: User not found
+        '406':
+          description: Mismatch in user id from path and request body.
+  /ssouser.svc/query:
+    put:
+      security:
+        - clientAccess:
+            - userservice
+      tags:
+        - lookup and validate
+      summary: Query users matching a query predicate
+      operationId: queryUsers
+      parameters:
+        - in: query
+          name: page
+          type: integer
+        - in: body
+          name: userQuery
+          schema:
+            $ref: '#/definitions/query'
+      consumes:
+        - application/json+jsondate
+      produces:
+        - application/json+jsondate
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/matchResult'
+          headers:
+            X-Version:
+              type: number
+        '400':
+          description: invalid query
+        '404':
+          description: User not found
+        '405':
+          description: not allowed
+  '/ssouser.svc/history/{useridentifier}':
+    get:
+      security:
+        - userAccess:
+            - userservice
+        - clientAccess:
+            - userservice
+      tags:
+        - user history
+      summary: Get users property history
+      description: ''
+      operationId: getHistory
+      parameters:
+        - in: path
+          name: useridentifier
+          required: true
+          type: string
+          format: uuid
+      consumes:
+        - application/json+jsondate
+      produces:
+        - application/json+jsondate
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/userHistory'
+          headers:
+            X-Version:
+              type: number
+        '400':
+          description: Invalid username supplied
+        '404':
+          description: User not found
+definitions:
+  mapItem:
+    properties:
+      key:
+        type: string
+      value:
+        type: string
+  userstate:
+    type: string
+    enum:
+      - Reserved
+      - Activated
+      - PendingDelete
+      - LoginCreated
+  pendingDelete:
+    type: string
+    format: dateTime
+  query:
+    description: A sql like query
+    type: string
+    example: FirstName == "Morten" && LastName == "Jensen" && created() > 2017/01/01
+  matchResult:
+    description: Contains ids of users as well as some meta information about the query. Results are paged.
+    properties:
+      MatchCount:
+        type: integer
+        description: Number of matching users
+      Page:
+        type: integer
+        description: Current page
+      NumberOfPages:
+        type: integer
+        description: The total number of pages for the query
+      Query:
+        description: Echo of the query
+        type: string
+        example: FirstName == "Morten" && LastName == "Jensen" && created() > 2017/01/01
+      IdsOfMatchingUser:
+        type: array
+        items:
+          type: string
+          format: guid
+        example:
+          - e2c26237-b00c-4d35-a87f-e581a28ea24c
+          - e2c26237-b00c-4d35-a87f-e581a28ea24c
+  userHistoryItem:
+    description: Version is a .NET Tick identifying the event time. Properties contain user state at the given moment.
+    properties:
+      Version:
+        type: integer
+      Properties:
+        $ref: '#/definitions/propertyBag'
+  userHistory:
+    description: Contains all user property states ever assigned. Will be limited to properties visible to the calling client.
+    properties:
+      UserStates:
+        type: array
+        items:
+          $ref: '#/definitions/userHistoryItem'
+  propertyBag:
+    description: Properties of a user.
+    type: object
+    additionalProperties:
+      $ref: '#/definitions/mapItem'
+  userForUpdate:
+    description: The user object for updates. It is not necessarily possible to update all values returned by a GET.
+    properties:
+      Identifier:
+        type: string
+        format: guid
+      Properties:
+        $ref: '#/definitions/propertyBag'
+    required:
+      - Identifier
+      - Properties
+  user:
+    properties:
+      Identifier:
+        type: string
+        format: guid
+      Created:
+        type: string
+        format: datetime
+        example: '2017-02-16T20:04:29.034Z'
+      Version:
+        type: integer
+        example: 636467750375658900
+      State:
+        $ref: '#/definitions/userstate'
+      PendingDelete: 
+        $ref: '#/definitions/pendingDelete'
+      Properties:
+        $ref: '#/definitions/propertyBag'
+  emailValidationCode:
+    type: string
+    enum:
+      - Ok
+      - NoMxRecordValidationError
+      - EmailHasInvalidTopLevelDomain
+      - EmailPatternValidationError
+  emailValidationResult:
+    properties:
+      validatedEmail:
+        type: string
+        description: Which email was validated?
+      isValidEmail:
+        type: boolean
+        description: '''true'' for valid emails, ''false'' if email is not allowed.'
+      validationResultCode:
+        $ref: '#/definitions/emailValidationCode'
+      validationResultMessage:
+        type: string
+        description: Additional information about the result.
+  reservationResponse:
+    description: Result of the reservation
+    properties:
+      Identifier:
+        description: Identifier of the user
+        type: string
+        format: guid
+      IsNewUser:
+        description: True if the request caused a new record to be created in userservice.
+        type: boolean
+      HasLogin:
+        description: Can the user log in or will the profile be treated as a non-existing user when the service is accessed.
+        type: boolean
+      Version:
+        type: integer
+        description: The current version of the user
+      State:
+        $ref: '#/definitions/userstate'
+  lookupResponse:
+    description: Information about a user lookup
+    properties:
+      Identifier:
+        type: string
+        format: guid
+      IsActivated:
+        type: boolean
+      IsLockedOut:
+        type: boolean
+      State:
+        $ref: '#/definitions/userstate'
+  changelogItem:
+    description: A user operation
+    properties:
+      UserIdentifier:
+        type: string
+        format: guid
+      OperationNumber:
+        type: integer
+      Operation:
+        type: string
+        enum:
+          - Create
+          - Update
+          - Delete
+          - RequestDelete
+          - CancelDelete
+      EventTime:
+        type: string
+        format: datetime
+  passwordCredentials:
+    description: The password for request body
+    properties:
+      password:
+        type: string
+  validatePasswordResponse:
+    description: A password validation response. For matched users this object will contain additional information useful to display messages to the user etc.
+    properties:
+      IsAuthorized:
+        type: boolean
+        description: True if the user should be considered logged in based on the input
+      UserCreated:
+        type: string
+        format: datetime
+        description: The date and time where the user was created.
+      FoundMatchingUser:
+        type: boolean
+        description: True when a user with the given username was found. Will be true even when password did not match.
+      Identifier:
+        description: 'Identifier of the user matching both username and password. Will be false when password is incorrect even though a match for username was found. If you need to lookup users, you should use the ''lookup'' method.'
+        type: string
+        format: guid
+      IsActivated:
+        type: boolean
+        description: True when the user has at some point confirmed ownership to the account.
+      IsLockedOut:
+        type: boolean
+        description: True when the user is locked out due to too many wrong password attempts.
+      UserState:
+        $ref: '#/definitions/userstate'
+  setPasswordResponse:
+    description: A password validation response. For matched users this object will contain additional information useful to display messages to the user etc.
+    properties:
+      UserIdentifier:
+        description: 'Identifier of the user matching both username and password. Will be false when password is incorrect even though a match for username was found. If you need to lookup users, you should use the ''lookup'' method.'
+        type: string
+        format: guid
+      Response:
+        type: string
+        enum:
+          - InvalidPassword
+          - Success
+          - NoSuchUser
+  completeUsernameChangeResponse:
+    description: Response when username change completion has been attempted
+    properties: 
+      Code:
+        description: the response code
+        type: string
+        enum: 
+          - Success
+          - IncorrectPassword 
+          - IncorrectChangeUsernameCode
+          - UnexpectedNewUsername
+          - NoSuchUser
+          - RequestExpired
+  completeUsernameChangeRequest:
+    description: Response when username change completion has been attempted
+    properties: 
+      ChangeUsernameCode:
+        description: The code sent to the user which prooves access to the email account for the new username.
+        type: string
+      RequestedUsername: 
+        description: The username the user wants to change to.
+        type: string
+        format: email
+      Password: 
+        type: string
+        format: password
+        description: The password of the user who wants to change username. This prooves that the person completing the change request actually is the owner of the account.
+  errorResponse:
+    properties:
+      Code:
+        type: integer
+        description: Follows the status code from the response
+      exceptionName:
+        type: string
+        description: The name of the exception code or some meaninfull error code. Usually a technical identifier of some sort.
+      message:
+        type: string
+        description: A more verbose description of the error.
