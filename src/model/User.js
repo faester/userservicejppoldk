@@ -17,18 +17,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/MapItem', 'model/Userstate'], factory);
+    define(['ApiClient', 'model/PendingDelete', 'model/PropertyBag', 'model/Userstate'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./MapItem'), require('./Userstate'));
+    module.exports = factory(require('../ApiClient'), require('./PendingDelete'), require('./PropertyBag'), require('./Userstate'));
   } else {
     // Browser globals (root is window)
     if (!root.Userservicejppoldk) {
       root.Userservicejppoldk = {};
     }
-    root.Userservicejppoldk.User = factory(root.Userservicejppoldk.ApiClient, root.Userservicejppoldk.MapItem, root.Userservicejppoldk.Userstate);
+    root.Userservicejppoldk.User = factory(root.Userservicejppoldk.ApiClient, root.Userservicejppoldk.PendingDelete, root.Userservicejppoldk.PropertyBag, root.Userservicejppoldk.Userstate);
   }
-}(this, function(ApiClient, MapItem, Userstate) {
+}(this, function(ApiClient, PendingDelete, PropertyBag, Userstate) {
   'use strict';
 
 
@@ -47,6 +47,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -78,8 +79,11 @@
       if (data.hasOwnProperty('State')) {
         obj['State'] = Userstate.constructFromObject(data['State']);
       }
+      if (data.hasOwnProperty('PendingDelete')) {
+        obj['PendingDelete'] = PendingDelete.constructFromObject(data['PendingDelete']);
+      }
       if (data.hasOwnProperty('Properties')) {
-        obj['Properties'] = ApiClient.convertToType(data['Properties'], {'String': MapItem});
+        obj['Properties'] = PropertyBag.constructFromObject(data['Properties']);
       }
     }
     return obj;
@@ -102,8 +106,11 @@
    */
   exports.prototype['State'] = undefined;
   /**
-   * This is a property bag which contains properties according to the clients authorizations. The result varies based on the client.
-   * @member {Object.<String, module:model/MapItem>} Properties
+   * @member {module:model/PendingDelete} PendingDelete
+   */
+  exports.prototype['PendingDelete'] = undefined;
+  /**
+   * @member {module:model/PropertyBag} Properties
    */
   exports.prototype['Properties'] = undefined;
 

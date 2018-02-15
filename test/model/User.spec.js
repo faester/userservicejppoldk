@@ -81,6 +81,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property pendingDelete (base name: "PendingDelete")', function() {
+      // uncomment below and update the code to test the property pendingDelete
+      //var instane = new Userservicejppoldk.User();
+      //expect(instance).to.be();
+    });
+
     it('should have the property properties (base name: "Properties")', function() {
       // uncomment below and update the code to test the property properties
       //var instane = new Userservicejppoldk.User();

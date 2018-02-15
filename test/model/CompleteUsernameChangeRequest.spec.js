@@ -31,7 +31,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Userservicejppoldk.PropertyBag();
+    instance = new Userservicejppoldk.CompleteUsernameChangeRequest();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,11 +50,29 @@
       object[property] = value;
   }
 
-  describe('PropertyBag', function() {
-    it('should create an instance of PropertyBag', function() {
-      // uncomment below and update the code to test PropertyBag
-      //var instane = new Userservicejppoldk.PropertyBag();
-      //expect(instance).to.be.a(Userservicejppoldk.PropertyBag);
+  describe('CompleteUsernameChangeRequest', function() {
+    it('should create an instance of CompleteUsernameChangeRequest', function() {
+      // uncomment below and update the code to test CompleteUsernameChangeRequest
+      //var instane = new Userservicejppoldk.CompleteUsernameChangeRequest();
+      //expect(instance).to.be.a(Userservicejppoldk.CompleteUsernameChangeRequest);
+    });
+
+    it('should have the property changeUsernameCode (base name: "ChangeUsernameCode")', function() {
+      // uncomment below and update the code to test the property changeUsernameCode
+      //var instane = new Userservicejppoldk.CompleteUsernameChangeRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property requestedUsername (base name: "RequestedUsername")', function() {
+      // uncomment below and update the code to test the property requestedUsername
+      //var instane = new Userservicejppoldk.CompleteUsernameChangeRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property password (base name: "Password")', function() {
+      // uncomment below and update the code to test the property password
+      //var instane = new Userservicejppoldk.CompleteUsernameChangeRequest();
+      //expect(instance).to.be();
     });
 
   });

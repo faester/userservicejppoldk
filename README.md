@@ -135,14 +135,17 @@ Class | Method | HTTP request | Description
 *Userservicejppoldk.UserCrudApi* | [**updateUser**](docs/UserCrudApi.md#updateUser) | **PUT** /ssouser.svc/user/{useridentifier} | Updates user
 *Userservicejppoldk.UserHistoryApi* | [**getHistory**](docs/UserHistoryApi.md#getHistory) | **GET** /ssouser.svc/history/{useridentifier} | Get users property history
 *Userservicejppoldk.UserReservationApi* | [**reserveUserIdentifier**](docs/UserReservationApi.md#reserveUserIdentifier) | **POST** /ssouser.svc/reserve | Reserve user identifiers.
+*Userservicejppoldk.UsernameAndEmailingApi* | [**completeUsernameChange**](docs/UsernameAndEmailingApi.md#completeUsernameChange) | **PUT** /ssouser.svc/changeUsername/{useridentifier} | Completes Username change
 *Userservicejppoldk.UsernameAndEmailingApi* | [**ssouserSvcMailUseridentifierMailNumberPost**](docs/UsernameAndEmailingApi.md#ssouserSvcMailUseridentifierMailNumberPost) | **POST** /ssouser.svc/mail/{useridentifier}/{mailNumber} | Send one of a brandings custom mails to a user
-*Userservicejppoldk.UsernameAndEmailingApi* | [**ssouserSvcNewemailUseridentifierRequestedEmailPut**](docs/UsernameAndEmailingApi.md#ssouserSvcNewemailUseridentifierRequestedEmailPut) | **PUT** /ssouser.svc/newemail/{useridentifier}/{requestedEmail} | Let the user change Username
 *Userservicejppoldk.UsernameAndEmailingApi* | [**ssouserSvcPwdresetUsernamePut**](docs/UsernameAndEmailingApi.md#ssouserSvcPwdresetUsernamePut) | **PUT** /ssouser.svc/pwdreset/{username} | Let the user change or reset password
+*Userservicejppoldk.UsernameAndEmailingApi* | [**startUsernameChange**](docs/UsernameAndEmailingApi.md#startUsernameChange) | **PUT** /ssouser.svc/newemail/{useridentifier}/{requestedEmail} | Let the user change Username
 
 
 ## Documentation for Models
 
  - [Userservicejppoldk.ChangelogItem](docs/ChangelogItem.md)
+ - [Userservicejppoldk.CompleteUsernameChangeRequest](docs/CompleteUsernameChangeRequest.md)
+ - [Userservicejppoldk.CompleteUsernameChangeResponse](docs/CompleteUsernameChangeResponse.md)
  - [Userservicejppoldk.EmailValidationCode](docs/EmailValidationCode.md)
  - [Userservicejppoldk.EmailValidationResult](docs/EmailValidationResult.md)
  - [Userservicejppoldk.ErrorResponse](docs/ErrorResponse.md)

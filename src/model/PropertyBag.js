@@ -50,12 +50,6 @@
   var exports = function() {
     var _this = this;
 
-
-
-
-
-
-
     return _this;
   };
 
@@ -71,55 +65,10 @@
       obj = obj || new exports();
       ApiClient.constructFromObject(data, obj, 'MapItem');
 
-      if (data.hasOwnProperty('FirstName')) {
-        obj['FirstName'] = ApiClient.convertToType(data['FirstName'], 'String');
-      }
-      if (data.hasOwnProperty('LastName')) {
-        obj['LastName'] = ApiClient.convertToType(data['LastName'], 'String');
-      }
-      if (data.hasOwnProperty('BirthDate')) {
-        obj['BirthDate'] = ApiClient.convertToType(data['BirthDate'], 'String');
-      }
-      if (data.hasOwnProperty('Branding')) {
-        obj['Branding'] = ApiClient.convertToType(data['Branding'], 'String');
-      }
-      if (data.hasOwnProperty('SubscriptionID_POL')) {
-        obj['SubscriptionID_POL'] = ApiClient.convertToType(data['SubscriptionID_POL'], ['String']);
-      }
-      if (data.hasOwnProperty('PhonePrimary')) {
-        obj['PhonePrimary'] = ApiClient.convertToType(data['PhonePrimary'], 'String');
-      }
     }
     return obj;
   }
 
-  /**
-   * Users first name
-   * @member {String} FirstName
-   */
-  exports.prototype['FirstName'] = undefined;
-  /**
-   * Users last name
-   * @member {String} LastName
-   */
-  exports.prototype['LastName'] = undefined;
-  /**
-   * @member {String} BirthDate
-   */
-  exports.prototype['BirthDate'] = undefined;
-  /**
-   * Defines the welcome/confirmation e-mail sent to the user upon creation.
-   * @member {String} Branding
-   */
-  exports.prototype['Branding'] = undefined;
-  /**
-   * @member {Array.<String>} SubscriptionID_POL
-   */
-  exports.prototype['SubscriptionID_POL'] = undefined;
-  /**
-   * @member {String} PhonePrimary
-   */
-  exports.prototype['PhonePrimary'] = undefined;
 
 
 

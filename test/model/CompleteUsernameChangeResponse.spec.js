@@ -31,7 +31,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Userservicejppoldk.PropertyBag();
+    instance = new Userservicejppoldk.CompleteUsernameChangeResponse();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,11 +50,17 @@
       object[property] = value;
   }
 
-  describe('PropertyBag', function() {
-    it('should create an instance of PropertyBag', function() {
-      // uncomment below and update the code to test PropertyBag
-      //var instane = new Userservicejppoldk.PropertyBag();
-      //expect(instance).to.be.a(Userservicejppoldk.PropertyBag);
+  describe('CompleteUsernameChangeResponse', function() {
+    it('should create an instance of CompleteUsernameChangeResponse', function() {
+      // uncomment below and update the code to test CompleteUsernameChangeResponse
+      //var instane = new Userservicejppoldk.CompleteUsernameChangeResponse();
+      //expect(instance).to.be.a(Userservicejppoldk.CompleteUsernameChangeResponse);
+    });
+
+    it('should have the property code (base name: "Code")', function() {
+      // uncomment below and update the code to test the property code
+      //var instane = new Userservicejppoldk.CompleteUsernameChangeResponse();
+      //expect(instance).to.be();
     });
 
   });

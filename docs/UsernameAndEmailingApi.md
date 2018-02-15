@@ -4,10 +4,70 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**completeUsernameChange**](UsernameAndEmailingApi.md#completeUsernameChange) | **PUT** /ssouser.svc/changeUsername/{useridentifier} | Completes Username change
 [**ssouserSvcMailUseridentifierMailNumberPost**](UsernameAndEmailingApi.md#ssouserSvcMailUseridentifierMailNumberPost) | **POST** /ssouser.svc/mail/{useridentifier}/{mailNumber} | Send one of a brandings custom mails to a user
-[**ssouserSvcNewemailUseridentifierRequestedEmailPut**](UsernameAndEmailingApi.md#ssouserSvcNewemailUseridentifierRequestedEmailPut) | **PUT** /ssouser.svc/newemail/{useridentifier}/{requestedEmail} | Let the user change Username
 [**ssouserSvcPwdresetUsernamePut**](UsernameAndEmailingApi.md#ssouserSvcPwdresetUsernamePut) | **PUT** /ssouser.svc/pwdreset/{username} | Let the user change or reset password
+[**startUsernameChange**](UsernameAndEmailingApi.md#startUsernameChange) | **PUT** /ssouser.svc/newemail/{useridentifier}/{requestedEmail} | Let the user change Username
 
+
+<a name="completeUsernameChange"></a>
+# **completeUsernameChange**
+> CompleteUsernameChangeResponse completeUsernameChange(useridentifier, opts)
+
+Completes Username change
+
+Trigger an email to the user which can be used to change the Username to the recipient address.
+
+### Example
+```javascript
+var Userservicejppoldk = require('userservicejppoldk');
+var defaultClient = Userservicejppoldk.ApiClient.instance;
+
+// Configure OAuth2 access token for authorization: clientAccess
+var clientAccess = defaultClient.authentications['clientAccess'];
+clientAccess.accessToken = 'YOUR ACCESS TOKEN';
+
+// Configure OAuth2 access token for authorization: userAccess
+var userAccess = defaultClient.authentications['userAccess'];
+userAccess.accessToken = 'YOUR ACCESS TOKEN';
+
+var apiInstance = new Userservicejppoldk.UsernameAndEmailingApi();
+
+var useridentifier = "useridentifier_example"; // String | The identifier of the user to authenticate
+
+var opts = { 
+  'completeRequest': new Userservicejppoldk.CompleteUsernameChangeRequest() // CompleteUsernameChangeRequest | 
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.completeUsernameChange(useridentifier, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **useridentifier** | **String**| The identifier of the user to authenticate | 
+ **completeRequest** | [**CompleteUsernameChangeRequest**](CompleteUsernameChangeRequest.md)|  | [optional] 
+
+### Return type
+
+[**CompleteUsernameChangeResponse**](CompleteUsernameChangeResponse.md)
+
+### Authorization
+
+[clientAccess](../README.md#clientAccess), [userAccess](../README.md#userAccess)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json+jsondate
+ - **Accept**: application/json+jsondate
 
 <a name="ssouserSvcMailUseridentifierMailNumberPost"></a>
 # **ssouserSvcMailUseridentifierMailNumberPost**
@@ -52,63 +112,6 @@ Name | Type | Description  | Notes
  **useridentifier** | **String**| Identifier of the user to e-mail. | 
  **mailNumber** | **String**| Number of the custom mail | 
  **branding** | **String**| The branding  defining the e-mail sent to the user | 
-
-### Return type
-
-**Object**
-
-### Authorization
-
-[clientAccess](../README.md#clientAccess)
-
-### HTTP request headers
-
- - **Content-Type**: application/json+jsondate
- - **Accept**: application/json+jsondate
-
-<a name="ssouserSvcNewemailUseridentifierRequestedEmailPut"></a>
-# **ssouserSvcNewemailUseridentifierRequestedEmailPut**
-> Object ssouserSvcNewemailUseridentifierRequestedEmailPut(useridentifier, requestedEmail, branding)
-
-Let the user change Username
-
-Trigger an email to the user which can be used to change the Username to the recipient address.
-
-### Example
-```javascript
-var Userservicejppoldk = require('userservicejppoldk');
-var defaultClient = Userservicejppoldk.ApiClient.instance;
-
-// Configure OAuth2 access token for authorization: clientAccess
-var clientAccess = defaultClient.authentications['clientAccess'];
-clientAccess.accessToken = 'YOUR ACCESS TOKEN';
-
-var apiInstance = new Userservicejppoldk.UsernameAndEmailingApi();
-
-var useridentifier = "useridentifier_example"; // String | The username of the user to authenticate
-
-var requestedEmail = "requestedEmail_example"; // String | The desired new email address for the user.
-
-var branding = "branding_example"; // String | The branding defining the e-mail sent to the user
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.ssouserSvcNewemailUseridentifierRequestedEmailPut(useridentifier, requestedEmail, branding, callback);
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **useridentifier** | **String**| The username of the user to authenticate | 
- **requestedEmail** | **String**| The desired new email address for the user. | 
- **branding** | **String**| The branding defining the e-mail sent to the user | 
 
 ### Return type
 
@@ -171,6 +174,67 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [clientAccess](../README.md#clientAccess)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json+jsondate
+ - **Accept**: application/json+jsondate
+
+<a name="startUsernameChange"></a>
+# **startUsernameChange**
+> Object startUsernameChange(useridentifier, requestedEmail, branding)
+
+Let the user change Username
+
+Trigger an email to the user which can be used to change the Username to the recipient address.
+
+### Example
+```javascript
+var Userservicejppoldk = require('userservicejppoldk');
+var defaultClient = Userservicejppoldk.ApiClient.instance;
+
+// Configure OAuth2 access token for authorization: clientAccess
+var clientAccess = defaultClient.authentications['clientAccess'];
+clientAccess.accessToken = 'YOUR ACCESS TOKEN';
+
+// Configure OAuth2 access token for authorization: userAccess
+var userAccess = defaultClient.authentications['userAccess'];
+userAccess.accessToken = 'YOUR ACCESS TOKEN';
+
+var apiInstance = new Userservicejppoldk.UsernameAndEmailingApi();
+
+var useridentifier = "useridentifier_example"; // String | The username of the user to authenticate
+
+var requestedEmail = "requestedEmail_example"; // String | The desired new email address for the user.
+
+var branding = "branding_example"; // String | The branding defining the e-mail sent to the user
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.startUsernameChange(useridentifier, requestedEmail, branding, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **useridentifier** | **String**| The username of the user to authenticate | 
+ **requestedEmail** | **String**| The desired new email address for the user. | 
+ **branding** | **String**| The branding defining the e-mail sent to the user | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[clientAccess](../README.md#clientAccess), [userAccess](../README.md#userAccess)
 
 ### HTTP request headers
 

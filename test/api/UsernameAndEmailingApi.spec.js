@@ -51,6 +51,16 @@
   }
 
   describe('UsernameAndEmailingApi', function() {
+    describe('completeUsernameChange', function() {
+      it('should call completeUsernameChange successfully', function(done) {
+        //uncomment below and update the code to test completeUsernameChange
+        //instance.completeUsernameChange(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('ssouserSvcMailUseridentifierMailNumberPost', function() {
       it('should call ssouserSvcMailUseridentifierMailNumberPost successfully', function(done) {
         //uncomment below and update the code to test ssouserSvcMailUseridentifierMailNumberPost
@@ -61,20 +71,20 @@
         done();
       });
     });
-    describe('ssouserSvcNewemailUseridentifierRequestedEmailPut', function() {
-      it('should call ssouserSvcNewemailUseridentifierRequestedEmailPut successfully', function(done) {
-        //uncomment below and update the code to test ssouserSvcNewemailUseridentifierRequestedEmailPut
-        //instance.ssouserSvcNewemailUseridentifierRequestedEmailPut(function(error) {
+    describe('ssouserSvcPwdresetUsernamePut', function() {
+      it('should call ssouserSvcPwdresetUsernamePut successfully', function(done) {
+        //uncomment below and update the code to test ssouserSvcPwdresetUsernamePut
+        //instance.ssouserSvcPwdresetUsernamePut(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('ssouserSvcPwdresetUsernamePut', function() {
-      it('should call ssouserSvcPwdresetUsernamePut successfully', function(done) {
-        //uncomment below and update the code to test ssouserSvcPwdresetUsernamePut
-        //instance.ssouserSvcPwdresetUsernamePut(function(error) {
+    describe('startUsernameChange', function() {
+      it('should call startUsernameChange successfully', function(done) {
+        //uncomment below and update the code to test startUsernameChange
+        //instance.startUsernameChange(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
